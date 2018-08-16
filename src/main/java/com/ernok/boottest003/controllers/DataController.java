@@ -3,83 +3,106 @@ package com.ernok.boottest003.controllers;
 import com.ernok.boottest003.models.Person;
 import com.ernok.boottest003.models.Project;
 import com.ernok.boottest003.models.Workplace;
-import com.ernok.boottest003.repositories.PersonRepo;
+import com.ernok.boottest003.repositories.PeopleRepo;
 import com.ernok.boottest003.repositories.ProjectRepo;
 import com.ernok.boottest003.repositories.WorkplaceRepo;
+import com.ernok.boottest003.services.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+// REST controller for accessing the database.
+// Sends requests to service layer and returns fetched values.
+
 @RestController
 @RequestMapping("/data")
 public class DataController {
 
-    @Autowired private PersonRepo people;
-    @Autowired private ProjectRepo projects;
-    @Autowired private WorkplaceRepo wPlaces;
+    private final DataService dataService;
+    private final PeopleRepo people;
+    private final ProjectRepo projects;
+    private final WorkplaceRepo wPlaces;
+
+    // Constructors
+
+    @Autowired
+    public DataController(DataService dataService,
+                          PeopleRepo people,
+                          ProjectRepo projects,
+                          WorkplaceRepo wPlaces) {
+        this.dataService = dataService;
+        this.people = people;
+        this.projects = projects;
+        this.wPlaces = wPlaces;
+    }
+
+    // Mappings for people requests
+
+    @GetMapping("/people/{personID}")
+    public Person getPerson(@PathVariable Long personID) {
+        return dataService.getPerson(personID);
+    }
 
     @GetMapping("/people")
     public Page<Person> getPeople(Pageable pageable) {
-        return people.findAll(pageable);
+        return dataService.getPeople(pageable);
     }
 
     @PostMapping("/people")
-    public Person createPerson(@Valid @RequestBody Person person) {
-        return people.save(person);
+    public ResponseEntity<?> createPerson(@Valid @RequestBody Person person) {
+        return dataService.createPerson(person);
     }
 
     @DeleteMapping("/people/{personID}")
     public ResponseEntity<?> deletePerson(@PathVariable Long personID) {
-        return people.findById(personID)
-                .map(person -> {
-                    people.delete(person);
-                    return ResponseEntity.ok().build();
-                }).orElseThrow( () ->
-                        new ResourceNotFoundException("Person not found."));
+        return dataService.deletePerson(personID);
+    }
+
+    // Mappings for project requests
+
+    @GetMapping("/projects/{projectID}")
+    public Project getProject(@PathVariable Long projectID) {
+        return dataService.getProject(projectID);
     }
 
     @GetMapping("/projects")
     public Page<Project> getProjects(Pageable pageable) {
-        return projects.findAll(pageable);
+        return dataService.getProjects(pageable);
     }
 
     @PostMapping("/projects")
-    public Project createProject(@Valid @RequestBody Project project) {
-        return projects.save(project);
+    public ResponseEntity<?> createProject(@Valid @RequestBody Project project) {
+        return dataService.createProject(project);
     }
 
     @DeleteMapping("/projects/{projectID}")
     public ResponseEntity<?> deleteProject(@PathVariable Long projectID) {
-        return projects.findById(projectID)
-                .map(project -> {
-                    projects.delete(project);
-                    return ResponseEntity.ok().build();
-                }).orElseThrow( () ->
-                        new ResourceNotFoundException("Project not found."));
+        return dataService.deleteProject(projectID);
+    }
+
+    // Mappings for workplace requests
+
+    @GetMapping("/workplaces/{workplaceID}")
+    public Workplace getWorkplace(@PathVariable Long workplaceID) {
+        return dataService.getWorkplace(workplaceID);
     }
 
     @GetMapping("/workplaces")
-    public Page<Workplace> getWPlaces(Pageable pageable) {
-        return wPlaces.findAll(pageable);
+    public Page<Workplace> getWorkplaces(Pageable pageable) {
+        return dataService.getWorkplaces(pageable);
     }
 
     @PostMapping("/workplaces")
-    public Workplace createWPlace(@Valid @RequestBody Workplace wPlace) {
-        return wPlaces.save(wPlace);
+    public ResponseEntity<?> createWorkplace(@Valid @RequestBody Workplace workplace) {
+        return dataService.createWorkplace(workplace);
     }
 
-    @DeleteMapping("/workplaces/{wPlaceID}")
-    public ResponseEntity<?> deleteWPlace(@PathVariable Long wPlaceID) {
-        return wPlaces.findById(wPlaceID)
-                .map(wPlace -> {
-                    wPlaces.delete(wPlace);
-                    return ResponseEntity.ok().build();
-                }).orElseThrow( () ->
-                        new ResourceNotFoundException("Project not found."));
+    @DeleteMapping("/workplaces/{workplaceID}")
+    public ResponseEntity<?> deleteWorkplace(@PathVariable Long workplaceID) {
+        return dataService.deleteWorkplace(workplaceID);
     }
 }

@@ -12,10 +12,6 @@ import java.util.Set;
 @Table(name = "people")
 public class Person {
 
-    /////
-    // Attributes
-    /////
-
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long person_id;
 
@@ -46,9 +42,7 @@ public class Person {
     )
     private Set<Project> projects = new HashSet<>();
 
-    /////
     // Constructors
-    /////
 
     protected Person() {}
 
@@ -60,9 +54,7 @@ public class Person {
         this.userNum = userNum;
     }
 
-    /////
     // Setters & getters
-    /////
 
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) {

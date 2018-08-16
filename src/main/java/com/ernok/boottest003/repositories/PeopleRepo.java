@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 // Repository interface for accessing user data table
 
 @Repository
-public interface PersonRepo extends JpaRepository<Person, Long> {
-}
+public interface PeopleRepo extends JpaRepository<Person, Long> {}

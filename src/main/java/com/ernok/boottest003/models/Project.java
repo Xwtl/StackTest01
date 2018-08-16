@@ -1,20 +1,17 @@
 package com.ernok.boottest003.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-// Data model representing projects & pSQL project table
+// Data model representing projects & pSQL projects table
 
 @Entity
 @Table(name = "projects")
 public class Project {
-
-    // Attributes
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long project_id;
