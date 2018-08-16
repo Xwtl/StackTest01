@@ -3,24 +3,27 @@ package com.ernok.boottest003.util;
 import com.ernok.boottest003.models.Person;
 import com.ernok.boottest003.models.Project;
 import com.ernok.boottest003.models.Workplace;
-import com.ernok.boottest003.repositories.PersonRepo;
+import com.ernok.boottest003.repositories.PeopleRepo;
 import com.ernok.boottest003.repositories.ProjectRepo;
 import com.ernok.boottest003.repositories.WorkplaceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.SpringVersion;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+// Runner method for playing around with the database
+
 @Component
 public class DatabaseRunner implements CommandLineRunner {
 
-    private final PersonRepo peopleRepo;
+    private final PeopleRepo peopleRepo;
     private final ProjectRepo projectRepo;
     private final WorkplaceRepo workplaceRepo;
 
     @Autowired
-    public DatabaseRunner(PersonRepo peopleRepo,
+    public DatabaseRunner(PeopleRepo peopleRepo,
                           ProjectRepo projectRepo,
                           WorkplaceRepo workplaceRepo) {
         this.peopleRepo = peopleRepo;
@@ -29,7 +32,7 @@ public class DatabaseRunner implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         projectRepo.deleteAllInBatch();
         peopleRepo.deleteAllInBatch();
@@ -102,6 +105,7 @@ public class DatabaseRunner implements CommandLineRunner {
         peopleRepo.save(seppo);
 
         System.err.println("---- Database ready ----");
+        System.err.println(SpringVersion.getVersion());
 
     }
 
