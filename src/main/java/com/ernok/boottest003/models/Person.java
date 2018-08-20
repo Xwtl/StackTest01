@@ -1,6 +1,5 @@
 package com.ernok.boottest003.models;
 
-import com.ernok.boottest003.payload.Participants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -10,6 +9,7 @@ import java.util.Set;
 
 // Data model representing users & pSQL user table
 
+// SQL query method, used for mapping SQL query responses to Java objects
 @SqlResultSetMapping(
         name = "ParticipantsMapping",
         columns = {
