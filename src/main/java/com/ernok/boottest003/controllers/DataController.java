@@ -3,6 +3,7 @@ package com.ernok.boottest003.controllers;
 import com.ernok.boottest003.models.Person;
 import com.ernok.boottest003.models.Project;
 import com.ernok.boottest003.models.Workplace;
+import com.ernok.boottest003.payload.Participants;
 import com.ernok.boottest003.repositories.PeopleRepo;
 import com.ernok.boottest003.repositories.ProjectRepo;
 import com.ernok.boottest003.repositories.WorkplaceRepo;
@@ -14,6 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
 
 // REST controller for accessing the database.
 // Sends requests to service layer and returns fetched values.
@@ -105,4 +108,24 @@ public class DataController {
     public ResponseEntity<?> deleteWorkplace(@PathVariable Long workplaceID) {
         return dataService.deleteWorkplace(workplaceID);
     }
+
+    ///////////////////////////////////////////////////////
+    /////////////////////// TESTING ///////////////////////
+    ///////////////////////////////////////////////////////
+
+    @GetMapping("/test/projects/{firstName}")
+    public List<Participants> getParticipants(@PathVariable String firstName) {
+        return dataService.getParticipants(firstName);
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<?> testQuery() {
+        return dataService.testQuery();
+    }
+
+    @GetMapping("/test/{firstName}")
+    public ResponseEntity<?> testQuery(@PathVariable String firstName) {
+        return dataService.testQuery(firstName);
+    }
+
 }

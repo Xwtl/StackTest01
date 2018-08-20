@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 // Dummy controller for homepage.
-// Directs to index.html
+// Directs root domain to index.html
 
 @Controller
 public class HomeController {

@@ -38,7 +38,6 @@ public class DatabaseRunner implements CommandLineRunner {
         peopleRepo.deleteAllInBatch();
         workplaceRepo.deleteAllInBatch();
 
-
         Person ville = new Person(
             "Ville",
             "Vallaton",
@@ -60,16 +59,14 @@ public class DatabaseRunner implements CommandLineRunner {
                 9987
         );
 
-
-
         Project proju1 = new Project(
-            "Projekti 1",
+            "Projekti1",
             LocalDate.of(2018, 1, 1),
             LocalDate.of(2019, 1, 1)
         );
 
         Project proju2 = new Project(
-                "Projekti 2",
+                "Projekti2",
                 LocalDate.of(2020, 5, 5),
                 LocalDate.of(2025, 9, 9)
         );
@@ -82,8 +79,13 @@ public class DatabaseRunner implements CommandLineRunner {
             "Työpaikka 2"
         );
 
+        Workplace tyopaikka3 = new Workplace(
+                "TestiPaikka"
+        );
+
         workplaceRepo.save(tyopaikka1);
         workplaceRepo.save(tyopaikka2);
+        workplaceRepo.save(tyopaikka3);
 
         proju1.getPeople().add(ville);
         ville.getProjects().add(proju1);
@@ -97,8 +99,8 @@ public class DatabaseRunner implements CommandLineRunner {
         proju2.getPeople().add(seppo);
 
         ville.setWorkplace(tyopaikka1);
-        kalle.setWorkplace(tyopaikka2);
-        seppo.setWorkplace(tyopaikka1);
+        kalle.setWorkplace(tyopaikka3);
+        seppo.setWorkplace(tyopaikka3);
 
         peopleRepo.save(ville);
         peopleRepo.save(kalle);
