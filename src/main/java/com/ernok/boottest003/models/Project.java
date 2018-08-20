@@ -20,7 +20,9 @@ public class Project {
     @Column private LocalDate startDate;
     @Column private LocalDate endDate;
 
-    // Create a many-to-many relationship with people table
+    // Create a many-to-many relationship with people table.
+    // Relationship managed through a separate junction table
+    // (people_projects) defined in the Person class.
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY,
@@ -45,21 +47,25 @@ public class Project {
     // Setters & getters
 
     public String getProjectName() { return projectName; }
+
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
 
     public LocalDate getStartDate() { return startDate; }
+
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
     public LocalDate getEndDate() { return endDate; }
+
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
     public Set<Person> getPeople() { return people; }
+
     public void setPeople(Set<Person> people) {
         this.people = people;
     }

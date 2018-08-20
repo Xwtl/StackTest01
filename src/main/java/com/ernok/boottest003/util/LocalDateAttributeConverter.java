@@ -9,7 +9,8 @@ import java.time.LocalDate;
 // Necessary to persist dates into the database in proper format.
 
 @Converter(autoApply = true)
-public class LocalDateAttributeConverter implements AttributeConverter<LocalDate, Date> {
+public class LocalDateAttributeConverter implements AttributeConverter<LocalDate,
+                                                                       Date> {
 
     @Override
     public Date convertToDatabaseColumn(LocalDate locDate) {

@@ -24,6 +24,7 @@ public class Workplace {
     // Setters & getters
 
     public String getWorkplaceName() { return workplaceName; }
+
     public void setWorkplaceName(String workplaceName) {
         this.workplaceName = workplaceName;
     }
