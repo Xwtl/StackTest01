@@ -4,7 +4,7 @@ import com.ernok.boottest003.exceptions.ResourceNotFoundException;
 import com.ernok.boottest003.models.Person;
 import com.ernok.boottest003.models.Project;
 import com.ernok.boottest003.models.Workplace;
-import com.ernok.boottest003.payload.Participants;
+import com.ernok.boottest003.payload.ParticipantPayload;
 import com.ernok.boottest003.repositories.PeopleRepo;
 import com.ernok.boottest003.repositories.ProjectRepo;
 import com.ernok.boottest003.repositories.WorkplaceRepo;
@@ -14,7 +14,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.xml.ws.Response;
 import java.util.List;
 
 // Service containing the database access methods
@@ -112,47 +111,14 @@ public class DataService {
                         new ResourceNotFoundException("Workplace not found."));
     }
 
-    ///////////////////////////////////////////////////////
     /////////////////////// TESTING ///////////////////////
-    ///////////////////////////////////////////////////////
 
-    /*
-    public ResponseEntity<?> testQuery() {
-        peopleRepo.findTest().ifPresent(result ->
-                System.out.println("Result type: " + ((Object) result).getClass()));
-        return ResponseEntity.ok().build();
-    }
-    */
-
-    public List<Participants> getParticipants(String firstName) {
-        List<Participants> participants = peopleRepo.selectParticipants(firstName);
+    public List<ParticipantPayload> getParticipants(String firstName) {
+        List<ParticipantPayload> participants = peopleRepo.selectParticipants(firstName);
         System.out.println("Participants: ");
         participants.forEach(item -> System.out.println("   - " + item.getFirstName()
                                                  + "\n      " + item.getProjectName()
                                                  + "\n      " + item.getStartDate()));
         return participants;
-    }
-
-    public ResponseEntity<?> testQuery() {
-        List<List<?>> result = peopleRepo.findTest();
-        System.out.println("Result type: " + result.getClass());
-        result.forEach(item -> System.out.println("   Item: " + item.toString()));
-        return ResponseEntity.ok().build();
-    }
-
-    public ResponseEntity<?> testQuery(String firstName) {
-        List<?> result = peopleRepo.findTest(firstName);
-        System.out.println("Result type: " + result.getClass());
-        result.forEach(item -> System.out.println("   Item: " + item.toString()));
-        return ResponseEntity.ok().build();
-    }
-
-    public ResponseEntity<?> findProjectParticipants(String projectName) {
-        List<Person> result = peopleRepo.findProjectParticipants(projectName);
-        System.out.println("Result type: " + result.getClass());
-        result.forEach(person -> System.out.println("   Object name: " +
-                                            person.getFirstName() + " " +
-                                            person.getLastName()));
-        return ResponseEntity.ok().build();
     }
 }
