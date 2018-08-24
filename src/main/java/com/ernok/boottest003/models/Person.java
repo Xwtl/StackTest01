@@ -34,7 +34,7 @@ public class Person {
     @Column                private String firstName;
     @Column                private String lastName;
     @Column(unique = true) private String email;
-    @Column                private int    userNum;
+    @Column(unique = true) private int    userNum;
 
     // Creates a many-to-one relationship with workplaces table.
     // Creates a workplace_id foreign key in the people-table.
