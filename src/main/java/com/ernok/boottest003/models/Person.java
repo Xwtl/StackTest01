@@ -15,8 +15,7 @@ import java.util.Set;
         columns = {
                 @ColumnResult(name = "projectName", type = String.class),
                 @ColumnResult(name = "startDate", type = LocalDate.class),
-                @ColumnResult(name = "firstName", type = String.class)
-        }
+                @ColumnResult(name = "firstName", type = String.class) }
 )
 @NamedNativeQuery(
         name = "Person.selectParticipants",
@@ -53,11 +52,10 @@ public class Person {
     @ManyToMany(fetch = FetchType.LAZY,
         cascade = {
             CascadeType.PERSIST,
-            CascadeType.MERGE
-        }
+            CascadeType.MERGE }
     )
     @JoinTable(name = "people_projects",
-        joinColumns = { @JoinColumn(name = "person_id") },
+        joinColumns =        { @JoinColumn(name = "person_id") },
         inverseJoinColumns = { @JoinColumn(name = "project_id") }
     )
     private Set<Project> projects = new HashSet<>();
