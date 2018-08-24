@@ -28,8 +28,7 @@ public class Project {
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                     CascadeType.PERSIST,
-                    CascadeType.MERGE
-            },
+                    CascadeType.MERGE },
             mappedBy = "projects"
     )
     private Set<Person> people = new HashSet<>();
@@ -38,7 +37,9 @@ public class Project {
 
     protected Project() {}
 
-    public Project(String projectName, LocalDate startDate, LocalDate endDate) {
+    public Project(String projectName, 
+                   LocalDate startDate, 
+                   LocalDate endDate) {
         this.projectName = projectName;
         this.startDate = startDate;
         this.endDate = endDate;
