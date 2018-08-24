@@ -46,17 +46,17 @@ public class DatabaseRunner implements CommandLineRunner {
         );
 
         Person kalle = new Person(
-                "Kalle",
-                "Kallela",
-                "kalle@email.com",
-                5678
+            "Kalle",
+            "Kallela",
+            "kalle@email.com",
+            5678
         );
 
         Person seppo = new Person(
-                "Seppo",
-                "Seppälä",
-                "seppo@email.com",
-                9987
+            "Seppo",
+            "Seppälä",
+            "seppo@email.com",
+            9987
         );
 
         Project proju1 = new Project(
@@ -66,9 +66,9 @@ public class DatabaseRunner implements CommandLineRunner {
         );
 
         Project proju2 = new Project(
-                "Projekti2",
-                LocalDate.of(2020, 5, 5),
-                LocalDate.of(2025, 9, 9)
+            "Projekti2",
+            LocalDate.of(2020, 5, 5),
+            LocalDate.of(2025, 9, 9)
         );
 
         Workplace tyopaikka1 = new Workplace(
@@ -80,7 +80,7 @@ public class DatabaseRunner implements CommandLineRunner {
         );
 
         Workplace tyopaikka3 = new Workplace(
-                "TestiPaikka"
+            "TestiPaikka"
         );
 
         workplaceRepo.save(tyopaikka1);
@@ -107,8 +107,6 @@ public class DatabaseRunner implements CommandLineRunner {
         peopleRepo.save(seppo);
 
         System.err.println("---- Database ready ----");
-        System.err.println(SpringVersion.getVersion());
-
     }
 
 }
