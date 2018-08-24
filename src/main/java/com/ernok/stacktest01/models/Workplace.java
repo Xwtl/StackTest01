@@ -1,4 +1,4 @@
-package com.ernok.boottest003.models;
+package com.ernok.stacktest01.models;
 
 import javax.persistence.*;
 

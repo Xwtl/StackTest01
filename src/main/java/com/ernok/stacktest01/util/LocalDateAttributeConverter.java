@@ -1,4 +1,4 @@
-package com.ernok.boottest003.util;
+package com.ernok.stacktest01.util;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

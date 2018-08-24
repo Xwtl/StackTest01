@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ernok</groupId>
-    <artifactId>boottest003</artifactId>
+    <artifactId>stacktest01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>boottest003</name>
+    <name>stacktest01</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>

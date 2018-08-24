@@ -1,6 +1,6 @@
-package com.ernok.boottest003.repositories;
+package com.ernok.stacktest01.repositories;
 
-import com.ernok.boottest003.models.Project;
+import com.ernok.stacktest01.models.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

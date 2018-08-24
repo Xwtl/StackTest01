@@ -1,19 +1,19 @@
-package com.ernok.boottest003.util;
+package com.ernok.stacktest01.util;
 
-import com.ernok.boottest003.models.Person;
-import com.ernok.boottest003.models.Project;
-import com.ernok.boottest003.models.Workplace;
-import com.ernok.boottest003.repositories.PeopleRepo;
-import com.ernok.boottest003.repositories.ProjectRepo;
-import com.ernok.boottest003.repositories.WorkplaceRepo;
+import com.ernok.stacktest01.models.Person;
+import com.ernok.stacktest01.models.Project;
+import com.ernok.stacktest01.models.Workplace;
+import com.ernok.stacktest01.repositories.PeopleRepo;
+import com.ernok.stacktest01.repositories.ProjectRepo;
+import com.ernok.stacktest01.repositories.WorkplaceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.core.SpringVersion;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
-// Runner method for playing around with the database
+// Runner method for playing around with the database:
+// adds entries in database tables
 
 @Component
 public class DatabaseRunner implements CommandLineRunner {

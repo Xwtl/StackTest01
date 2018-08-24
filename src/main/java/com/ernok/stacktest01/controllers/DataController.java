@@ -1,13 +1,14 @@
-package com.ernok.boottest003.controllers;
+package com.ernok.stacktest01.controllers;
 
-import com.ernok.boottest003.models.Person;
-import com.ernok.boottest003.models.Project;
-import com.ernok.boottest003.models.Workplace;
-import com.ernok.boottest003.payload.ParticipantPayload;
-import com.ernok.boottest003.repositories.PeopleRepo;
-import com.ernok.boottest003.repositories.ProjectRepo;
-import com.ernok.boottest003.repositories.WorkplaceRepo;
-import com.ernok.boottest003.services.DataService;
+
+import com.ernok.stacktest01.models.Person;
+import com.ernok.stacktest01.models.Project;
+import com.ernok.stacktest01.models.Workplace;
+import com.ernok.stacktest01.payload.ParticipantPayload;
+import com.ernok.stacktest01.repositories.PeopleRepo;
+import com.ernok.stacktest01.repositories.ProjectRepo;
+import com.ernok.stacktest01.repositories.WorkplaceRepo;
+import com.ernok.stacktest01.services.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -109,6 +110,8 @@ public class DataController {
     }
 
     /////////////////////// TESTING ///////////////////////
+
+    // Testing custom SQL query
 
     @GetMapping("/test/projects/{firstName}")
     public List<ParticipantPayload> getParticipants(@PathVariable String firstName) {

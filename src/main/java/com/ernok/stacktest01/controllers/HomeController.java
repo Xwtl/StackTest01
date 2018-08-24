@@ -1,4 +1,4 @@
-package com.ernok.boottest003.controllers;
+package com.ernok.stacktest01.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

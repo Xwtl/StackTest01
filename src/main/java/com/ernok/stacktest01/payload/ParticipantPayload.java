@@ -1,4 +1,4 @@
-package com.ernok.boottest003.payload;
+package com.ernok.stacktest01.payload;
 
 import java.time.LocalDate;
 

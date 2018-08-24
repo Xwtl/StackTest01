@@ -1,4 +1,4 @@
-package com.ernok.boottest003;
+package com.ernok.stacktest01;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // Main method for running the web service.
 
 @SpringBootApplication
-public class Boottest003Application {
+public class StackTest01Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Boottest003Application.class, args);
+        SpringApplication.run(StackTest01Application.class, args);
     }
 }
