@@ -14,8 +14,8 @@ import java.util.Set;
         name = "ParticipantsMapping",
         columns = {
                 @ColumnResult(name = "projectName", type = String.class),
-                @ColumnResult(name = "startDate", type = LocalDate.class),
-                @ColumnResult(name = "firstName", type = String.class) }
+                @ColumnResult(name = "startDate",   type = LocalDate.class),
+                @ColumnResult(name = "firstName",   type = String.class) }
 )
 @NamedNativeQuery(
         name = "Person.selectParticipants",
@@ -64,8 +64,10 @@ public class Person {
 
     protected Person() {}
 
-    public Person(String firstName, String lastName,
-                  String email, int userNum) {
+    public Person(String firstName, 
+                  String lastName,
+                  String email, 
+                  int userNum) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
